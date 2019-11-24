@@ -1,0 +1,7 @@
+node_modules/
+.venv/
+package-lock.json
+
+*.pyc
+*.sqlite3
+*.db
