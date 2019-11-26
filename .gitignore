@@ -5,3 +5,5 @@ package-lock.json
 *.pyc
 *.sqlite3
 *.db
+
+todolist/backend/migrations/*

@@ -1,3 +1,7 @@
-from frontend.urls import path
+from rest_framework import routers
+from backend.api import TodoViewSet
 
-urlpatterns = []
+router = routers.DefaultRouter()
+router.register("todos", TodoViewSet, "todos")
+
+urlpatterns = router.urls

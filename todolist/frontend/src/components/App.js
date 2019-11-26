@@ -1,9 +1,15 @@
 import React from "react";
 import PropTypes from "prop-types";
 
+import TodoList from "./TodoComponents/TodoList";
+
 const propTypes = {};
 
 const defaultProps = {};
+
+/* This is for store info */
+import store from "../store";
+import { Provider } from "react-redux";
 
 class App extends React.Component {
   constructor(props) {
@@ -12,9 +18,11 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
-        <h1>Hello World!</h1>
-      </div>
+      <Provider store={store}>
+        <div>
+          <TodoList />
+        </div>
+      </Provider>
     );
   }
 }
