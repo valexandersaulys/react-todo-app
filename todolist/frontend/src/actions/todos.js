@@ -86,16 +86,21 @@ export const markTodo = ze_todo => (dispatch, getState) => {
     .catch(err => console.log(err));
 };
 
-export const handleDelete = () => (dispatch, getState) => {
-  // do I want to delete one or many URIs at a time?
-  // parallel or not parallel?
-  // hmm...
-
+export const handleDelete = something => (dispatch, getState) => {
   dispatch({ type: SAVING_STATE, payload: true });
-
-  axios.delete(`/api/todos/`);
-  dispatch({
-    type: REMOVE_TODOS,
-    payload: []
-  });
+  axios
+    .delete(`/api/todos/remove_marked/`)
+    .then(res => {
+      dispatch({
+        type: REMOVE_TODOS,
+        payload: res.data.ids_deleted
+      });
+    })
+    .then(res => {
+      dispatch({
+        type: SAVING_STATE,
+        payload: false
+      });
+    })
+    .catch(err => console.log(err));
 };

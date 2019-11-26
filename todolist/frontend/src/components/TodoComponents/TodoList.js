@@ -1,13 +1,14 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { connect } from "react-redux";
 
 import Form from "./Form.js";
 import Todos from "./Todos.js";
 
-import handleDelete from "../../actions/todos";
+import { handleDelete } from "../../actions/todos";
 
 const propTypes = {
-  handlDelete: PropTypes.func.isRequired
+  handleDelete: PropTypes.func.isRequired
 };
 
 const defaultProps = {};

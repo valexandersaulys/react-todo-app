@@ -28,14 +28,14 @@ export default function(state = initialState, action) {
     case REMOVE_TODOS:
       return {
         ...state,
-        todos: state.todos.filter(todo => action.payload.contains(todo.id))
+        todos: state.todos.filter(todo => !action.payload.includes(todo.id))
       };
     case MODIFY_TODO:
       return {
         ...state,
         todos: state.todos.map(todo => {
           if (
-            (todo.name === action.payload.name && todo.id === 999) ||
+            (todo.name === action.payload.name && todo.id === "_") ||
             todo.id === action.payload.id
           ) {
             todo = action.payload;
